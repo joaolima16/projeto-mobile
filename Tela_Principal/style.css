@@ -1,0 +1,20 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Cabeçalho */
+.header{
+    display: flex;
+    flex-flow: row nowrap ;
+    gap: 5rem;
+}
+
+
+/* Rodape */
+.container-footer{
+    display: flex;
+    flex-direction: row;
+    gap: 5rem;
+}

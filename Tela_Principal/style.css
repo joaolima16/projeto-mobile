@@ -1,20 +1,57 @@
-*{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+.imgNav{
+    margin-right: 50%;
+    border-radius: 10px;
 }
 
-/* Cabeçalho */
-.header{
+.buttonsLoginSignUp{
     display: flex;
-    flex-flow: row nowrap ;
-    gap: 5rem;
 }
 
+.buttonsLoginSignUp > button{
+    margin: 10px;
+}
 
-/* Rodape */
-.container-footer{
+.buttonsLoginSignUp > a{
+    font-size: 25px;
+    margin: 10px;
+    padding-right: 100px;
+    color: #000;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.buttonsLoginSignUp > a:hover{
+    transition-duration: 0.5s;
+    color: rgb(37, 56, 149);
+}
+
+.nav{
     display: flex;
-    flex-direction: row;
-    gap: 5rem;
+    justify-content: space-around;
+    background-color: rgb(255, 255, 255);
+    box-shadow: 1px 1px 1000px;
+}
+
+.registerText{
+    position: absolute;
+    left: 20%;
+    bottom: 45%;
+    font-weight: bolder;
+    font-size: 30px;
+}
+
+.doutorzinho{
+    position: absolute;
+    width: 500px;
+    left: 50%;
+    bottom: 10%;
+}
+
+.buttonDoctor{
+    display: flex;
+    justify-content: center;
+}
+
+.buttonDoctor > button{
+    margin: 10px;
 }

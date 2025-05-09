@@ -1,0 +1,121 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  html,
+  body {
+    height: 100%;
+    width: 100%;
+  }
+  
+  h1 {
+    color: rgba(5, 8, 8, 0.778);
+    margin-top: 20px;
+    text-align: center;
+    font-size: 2.5rem;
+  }
+  
+  a {
+    text-decoration: none;
+    color: #000;
+  }
+  
+  a:hover {
+    color: rgb(37, 56, 149);
+  }
+  
+  header {
+    margin-top: 1px;
+  }
+  
+  /* Cabeçalho  */
+  .nav {
+    padding: 15px 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: rgb(255, 255, 255);
+    box-shadow: 1px 1px 1000px;
+  }
+  
+  .imgNav {
+    margin-top: 4px;
+  }
+  
+  ul {
+    display: flex;
+    gap: 1.5rem;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+  }
+  
+  li {
+    margin: 0 20px;
+    cursor: pointer;
+  }
+  
+  .buttonsLoginSignUp {
+    display: flex;
+  }
+  
+  .buttonsLoginSignUp > button {
+    margin: 10px;
+  }
+  
+  .buttonsLoginSignUp > a {
+    font-size: 25px;
+    margin: 10px;
+    padding-right: 100px;
+    color: #000;
+    font-weight: bold;
+    text-decoration: none;
+  }
+  
+  .buttonsLoginSignUp > a:hover {
+    transition-duration: 0.5s;
+    color: rgb(37, 56, 149);
+  }
+  
+  /* Main */
+  .registerText {
+    display: flex;
+    flex-flow: column nowrap;
+    justify-items: center;
+    align-items: center;
+    margin-top: 10vh;
+  
+    /* position: sta;
+      left: 20%;
+      bottom: 45%; */
+    font-weight: bolder;
+    font-size: 30px;
+  }
+  
+  .registerText h1 {
+    max-width: 25rem;
+    text-align: left;
+  }
+  
+  .doutorzinho {
+    display: inline-flex;
+    position: relative;
+    flex-direction: row;
+    justify-content: end;
+    align-items: end;
+    width: 400px;
+  }
+  
+  .buttonDoctor {
+    display: flex;
+    justify-content: center;
+  }
+  
+  .buttonDoctor > button {
+    margin: 10px;
+  }
+  

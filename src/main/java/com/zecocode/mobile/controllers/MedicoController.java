@@ -29,11 +29,14 @@ public class MedicoController {
 
     @PostMapping
     public ResponseEntity createMedico(@RequestBody MedicoDTO medico) {
-        // TODO: process POST request
 
-        medicoService.createPatient(medico);
+        if (medicoService.findMedicoByEmail(medico.email()) == null) {
+            medicoService.createMedico(medico);
+            return ResponseEntity.status(HttpStatus.OK).body("Paciente criardo da base com sucesso!");
+        } else {
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Paciente já existe na base de dados!");
+        }
 
-        return ResponseEntity.status(HttpStatus.OK).body("Paciente criardo da base com sucesso!");
     }
 
 }

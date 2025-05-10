@@ -21,9 +21,7 @@ public class AtendimentoController {
 
     @GetMapping
     public ResponseEntity findAllAtendimentos() {
-
         atendimentoService.findAllAtendimentos();
-
         return ResponseEntity.status(HttpStatus.OK).body("Lista de todos os atendimentos");
     }
 

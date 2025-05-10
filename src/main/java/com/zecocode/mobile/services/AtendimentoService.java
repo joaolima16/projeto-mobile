@@ -1,8 +1,6 @@
 package com.zecocode.mobile.services;
 
 import java.util.List;
-import java.util.Optional;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -40,7 +38,7 @@ public class AtendimentoService {
 
             return atendimentoRepository.save(newAtendimento);
         } catch (Exception e) {
-            throw new RuntimeException("Error to create student");
+            throw new RuntimeException("Erro ao criar novo atendimento");
         }
     }
 

@@ -5,6 +5,7 @@ import java.util.List;
 import com.zecocode.mobile.domain.atendimento.Atendimento;
 
 import jakarta.persistence.CascadeType;
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -34,6 +35,11 @@ public class Medico {
     private String especialidade;
 
     private String telefone;
+
+    private String email;
+
+    @Column(length = 70, nullable = false)
+    private String senha;
 
     @OneToMany(mappedBy = "medico", cascade = CascadeType.ALL)
     private List<Atendimento> atendimentos;

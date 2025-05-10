@@ -1,5 +1,6 @@
 package com.zecocode.mobile.domain.paciente;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -23,6 +24,8 @@ public class Paciente {
 
     private String name;
 
+    private String email;
+
     private String cpf;
 
     private int idade;
@@ -30,5 +33,8 @@ public class Paciente {
     private String endereco;
 
     private String telefone;
+
+    @Column(length = 70, nullable = false)
+    private String senha;
 
 }

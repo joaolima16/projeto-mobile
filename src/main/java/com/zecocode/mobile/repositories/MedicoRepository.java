@@ -6,4 +6,5 @@ import com.zecocode.mobile.domain.medico.Medico;
 
 public interface MedicoRepository extends JpaRepository<Medico, Long> {
 
+    public Medico findByEmail(String email);
 }

@@ -3,10 +3,12 @@ package com.zecocode.mobile.services;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import com.zecocode.mobile.domain.medico.Medico;
 import com.zecocode.mobile.domain.medico.MedicoDTO;
+import com.zecocode.mobile.domain.paciente.Paciente;
 import com.zecocode.mobile.repositories.MedicoRepository;
 
 @Service
@@ -14,6 +16,9 @@ public class MedicoService {
 
     @Autowired
     private MedicoRepository medicoRepository;
+
+    @Autowired
+    private PasswordEncoder encoder;
 
     public Medico findMedicoById(Long id) {
         return medicoRepository.findById(id).orElse(null);
@@ -23,7 +28,7 @@ public class MedicoService {
         return medicoRepository.findAll();
     }
 
-    public Medico createPatient(MedicoDTO medicoDto) {
+    public Medico createMedico(MedicoDTO medicoDto) {
 
         Medico medico = new Medico();
         medico.setNome(medicoDto.nome());
@@ -31,7 +36,17 @@ public class MedicoService {
         medico.setEspecialidade(medicoDto.especialidade());
         medico.setTelefone(medicoDto.telefone());
 
+        medico.setEmail(medicoDto.email());
+
+        String senhaCriptografada = encoder.encode(medicoDto.senha());
+        medico.setSenha(senhaCriptografada);
+
         return medicoRepository.save(medico);
+    }
+
+    // ENCONTRA PACIENTE POR EMAIL
+    public Medico findMedicoByEmail(String email) {
+        return medicoRepository.findByEmail(email);
     }
 
 }

@@ -4,6 +4,7 @@ import java.time.LocalDate;
 import java.time.LocalTime;
 import java.util.Optional;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.zecocode.mobile.domain.medico.Medico;
 import com.zecocode.mobile.domain.paciente.Paciente;
 
@@ -43,10 +44,12 @@ public class Atendimento {
 
     @ManyToOne
     @JoinColumn(name = "medico_id", nullable = false)
+    @JsonIgnore
     private Medico medico;
 
     @OneToOne
     @JoinColumn(name = "paciente_id", nullable = false)
+    @JsonIgnore
     private Paciente paciente;
 
 }

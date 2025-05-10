@@ -42,7 +42,7 @@ public class PacienteService {
         return pacienteRepository.findAll();
     }
 
-    // ENCONTRA TODOS OS PACIENTES
+    // DELETA PACIENTE DA BASE
     public void deletarPaciente(Long id) {
         Optional<Paciente> paciente = pacienteRepository.findById(id);
         if (paciente.isPresent()) {

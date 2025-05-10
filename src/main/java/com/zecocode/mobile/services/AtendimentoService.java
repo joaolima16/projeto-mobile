@@ -1,6 +1,8 @@
 package com.zecocode.mobile.services;
 
 import java.util.List;
+import java.util.Optional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -44,6 +46,16 @@ public class AtendimentoService {
 
     public List<Atendimento> findAllAtendimentos() {
         return atendimentoRepository.findAll();
+    }
+
+    // DELETA ATENDIMENTO DA BASE
+    public void deletarPaciente(Long id) {
+        Optional<Atendimento> atendimento = atendimentoRepository.findById(id);
+        if (atendimento.isPresent()) {
+            atendimentoRepository.deleteById(id);
+        } else {
+            throw new RuntimeException("Paciente com ID " + id + " não encontrado.");
+        }
     }
 
 }

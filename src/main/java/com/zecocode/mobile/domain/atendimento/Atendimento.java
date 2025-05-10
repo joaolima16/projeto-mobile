@@ -2,6 +2,7 @@ package com.zecocode.mobile.domain.atendimento;
 
 import java.time.LocalDate;
 import java.time.LocalTime;
+import java.util.Optional;
 
 import com.zecocode.mobile.domain.medico.Medico;
 import com.zecocode.mobile.domain.paciente.Paciente;

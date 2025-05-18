@@ -13,6 +13,7 @@ import com.zecocode.mobile.domain.paciente.Paciente;
 import com.zecocode.mobile.domain.paciente.PacienteDTO;
 import com.zecocode.mobile.services.PacienteService;
 
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -21,6 +22,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 
 @RestController
 @RequestMapping("/paciente")
+@CrossOrigin(origins = "http://127.0.0.1:5501")
 public class PacienteController {
 
     @Autowired
@@ -34,7 +36,7 @@ public class PacienteController {
     @PostMapping
     public ResponseEntity<Object> createPaciente(@RequestBody PacienteDTO paciente) {
 
-        if (pacienteService.findPacienteByEmail(paciente.email()) != null) {
+        if (pacienteService.findPacienteByEmail(paciente.email()) == null) {
             this.pacienteService.createPatient(paciente);
             return ResponseEntity.status(org.springframework.http.HttpStatus.ACCEPTED)
                     .body("Paciente cadastrado com sucesso!");

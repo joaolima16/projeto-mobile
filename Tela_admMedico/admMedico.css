@@ -6,11 +6,11 @@
 }
 
 body {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    font-family: Arial, sans-serif;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-family: Arial, sans-serif;
 }
 
 /* Cabeçalho */
@@ -35,11 +35,11 @@ header {
 }
 
 .navbar-container {
-    padding: 15px 10px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+  padding: 15px 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
 }
 
 .navbar-logo {
@@ -84,9 +84,8 @@ header {
 
 
 /* Seção hero */
-.hero{
-    text-align: center;
-    padding: 50px 0;
+.hero {
+  text-align: center;
 }
 
 /* Informações do Médico */
@@ -206,10 +205,43 @@ header {
   background-color: #138496;
 }
 
-/* Rodapé */
-.footer {
+
+footer {
+  background-color: #333;
+  color: #ddd;
+  padding: 2rem 0 2rem;
+  width: 100%;
+}
+
+.footer-content {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 20rem;
+}
+
+.footer-column ul {
+  list-style: none;
+}
+
+.footer-column ul li {
+  margin-bottom: 0.8rem;
+}
+
+.footer-column ul li a {
+  color: #bbb;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.footer-column h4 {
   text-align: center;
-  padding: 10px 0;
-  margin-top: 20px;
-  border-top: 1px solid #ddd;
+  color: white;
+  margin-bottom: 1rem;
+  font-size: 1.2rem;
+}
+
+.footer-column ul li a:hover {
+  color: #e0c3ff;
 }

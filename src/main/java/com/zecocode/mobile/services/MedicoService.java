@@ -8,6 +8,9 @@ import org.springframework.stereotype.Service;
 
 import com.zecocode.mobile.domain.medico.Medico;
 import com.zecocode.mobile.domain.medico.MedicoDTO;
+import com.zecocode.mobile.domain.medico.MedicoLogin;
+import com.zecocode.mobile.domain.paciente.PacientLogin;
+import com.zecocode.mobile.domain.paciente.Paciente;
 import com.zecocode.mobile.repositories.MedicoRepository;
 
 @Service
@@ -46,6 +49,19 @@ public class MedicoService {
     // ENCONTRA PACIENTE POR EMAIL
     public Medico findMedicoByEmail(String email) {
         return medicoRepository.findByEmail(email);
+    }
+
+    // Login Medico
+    public MedicoLogin medicoLogin(MedicoLogin medico) {
+        Medico medicoEncontrado = medicoRepository.findByEmail(medico.email());
+
+        if (medicoEncontrado != null) {
+            boolean validate = encoder.matches(medico.senha(), medicoEncontrado.getSenha());
+            if (medico == null || !validate) {
+                return null;
+            }
+        }
+        return medico;
     }
 
 }

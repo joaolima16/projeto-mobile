@@ -24,8 +24,9 @@
 
             <!-- Botões de login e cadastro -->
             <div class="navbar-actions">
-                <a href="../Tela_Cadastro/Login/login.html" class="btn btn-light">Entrar</a>
-                <a href="../Tela_Cadastro/cadastrar.html" class="btn btn-dark">Cadastrar-se</a>
+                <a href="../Tela_Cadastro/Login/login.html" id="login" class="btn btn-light">Entrar</a>
+                <a href="../Tela_Cadastro/cadastrar.html" id="register" class="btn btn-dark">Cadastrar-se</a>
+                <a id="logout" class="btn btn-outline-danger">Sair</a>
             </div>
         </nav>
     </header>
@@ -41,8 +42,7 @@
 
             <!-- Botões de ação -->
             <div class="hero-actions">
-                <button type="button" class="btn btn-dark">Paciente</button>
-                <button type="button" class="btn btn-dark">Médico</button>
+                <button type="button" id="agendamento" class="btn btn-dark">Área de Agendamento</button>
             </div>
 
             <!-- Imagem do doutor -->
@@ -90,6 +90,7 @@
             
         </div>
     </footer>
+    <script src="./home.js"></script>
 </body>
 
 </html>

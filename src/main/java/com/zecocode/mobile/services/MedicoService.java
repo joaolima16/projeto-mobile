@@ -8,7 +8,6 @@ import org.springframework.stereotype.Service;
 
 import com.zecocode.mobile.domain.medico.Medico;
 import com.zecocode.mobile.domain.medico.MedicoDTO;
-import com.zecocode.mobile.domain.paciente.Paciente;
 import com.zecocode.mobile.repositories.MedicoRepository;
 
 @Service

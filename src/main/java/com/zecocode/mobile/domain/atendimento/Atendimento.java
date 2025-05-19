@@ -14,7 +14,6 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
-import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -42,12 +41,14 @@ public class Atendimento {
 
     private String sala;
 
+    private boolean status;
+
     @ManyToOne
     @JoinColumn(name = "medico_id", nullable = false)
     @JsonIgnore
     private Medico medico;
 
-    @OneToOne
+    @ManyToOne
     @JoinColumn(name = "paciente_id", nullable = false)
     @JsonIgnore
     private Paciente paciente;

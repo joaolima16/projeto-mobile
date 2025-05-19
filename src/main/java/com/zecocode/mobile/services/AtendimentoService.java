@@ -31,6 +31,7 @@ public class AtendimentoService {
             newAtendimento.setDataAtendimento(atendimento.dataAtendimento());
             newAtendimento.setHoraAtendimento(atendimento.horaAtendimento());
             newAtendimento.setSala(atendimento.sala());
+            newAtendimento.setStatus(atendimento.status());
 
             Medico medico = medicoService.findMedicoById(atendimento.medico());
             Paciente paciente = pacienteService.findPacienteById(atendimento.paciente());
@@ -46,6 +47,10 @@ public class AtendimentoService {
 
     public List<Atendimento> findAllAtendimentos() {
         return atendimentoRepository.findAll();
+    }
+
+    public List<Atendimento> findAtendimentosByPacienteId(Long pacienteId) {
+        return atendimentoRepository.findByPacienteId(pacienteId);
     }
 
     // DELETA ATENDIMENTO DA BASE

@@ -1,169 +1,133 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-    />
-    <link rel="stylesheet" href="consulta.css" />
-    <title>Nexus | Consulta Médica</title>
-  </head>
 
-  <body>
-    <header>
-      <nav class="navbar nav">
-        <img
-          src="../assets/logo.png"
-          class="imgNav"
-          alt="Bootstrap"
-          width="200"
-          height="50"
-        />
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="consulta.css" />
+  <title>Nexus | Consulta Médica</title>
+</head>
 
-        <div class="buttonsLoginSignUp">
-          <ul>
-            <li><a href="#">Sobre</a></li>
-            <li><a href="#">Contatos</a></li>
-          </ul>
-        </div>
-      </nav>
+<body>
+  <header>
+    <nav class="navbar nav">
+      <img src="../assets/logo.png" class="imgNav" alt="Bootstrap" width="200" height="50" />
+
+      <div class="buttonsLoginSignUp">
+        <ul>
+          <li><a href="#">Sobre</a></li>
+          <li><a href="#">Contatos</a></li>
+        </ul>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <!-- Cabeçalho -->
+    <header class="header">
+      <h1>Visualize suas Consultas Medicas</h1>
     </header>
 
-    <main>
-      <!-- Cabeçalho -->
-      <header class="header">
-        <h1>Visualize suas Consultas Medicas</h1>
-        <p>Veja como está o andamento da suas consultas</p>
-      </header>
+    <!-- Informações do Médico -->
+    <section class="doctor-info">
+      <h2>Informações do Paciente</h2>
+      <ul>
+        <li><strong>Nome:</strong> <span id="paciente-nome"></span></li>
+        <li><strong>Email:</strong> <span id="paciente-email"></span></li>
+        <li><strong>Idade:</strong> <span id="paciente-idade"></span></li>
+        <li><strong>Telefone:</strong> <span id="paciente-telefone"></span></li>
+      </ul>
+    </section>
 
-      <!-- Informações do Médico -->
-      <section class="doctor-info">
-        <h2>Informações do Médico</h2>
-        <ul>
-          <li><strong>Nome:</strong></li>
-          <li><strong>Cargo:</strong></li>
-          <li><strong>Idade:</strong></li>
-          <li><strong>Telefone:</strong></li>
-        </ul>
-      </section>
+    <!-- Conteúdo principal -->
+    <main class="container">
+      <div class="search-section">
+        <h2>Consultas</h2>
+        <!-- Campo de busca -->
+        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+          Agendar novo atendimento
+        </button>
+      </div>
 
-      <!-- Conteúdo principal -->
-      <main class="container">
-        <div class="search-section">
-          <h2>Lista de Pacientes</h2>
-          <!-- Campo de busca -->
-          <input
-            type="text"
-            class="search-input"
-            placeholder="Buscar paciente..."
-            id="searchInput"
-          />
-        </div>
-
-        <!-- Tabela de pacientes -->
-        <table class="patient-table">
-          <thead>
-            <tr>
-              <th>#</th>
-              <th>Nome do Paciente</th>
-              <th>Data da Consulta</th>
-              <th>Ações</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>1</td>
-              <td>João Silva</td>
-              <td>12/05/2025</td>
-              <td>
-                <button
-                  class="btn info"
-                  onclick="showAlert('Atualizado perfil', 'João Silva')"
-                >
-                  Atualizar
-                </button>
-              </td>
-            </tr>
-            <tr>
-              <td>2</td>
-              <td>Maria Oliveira</td>
-              <td>13/05/2025</td>
-              <td>
-                <button
-                  class="btn reject"
-                  onclick="showAlert('Apagado', 'Maria Oliveira')"
-                >
-                  Apagar
-                </button>
-              </td>
-            </tr>
-            <tr>
-              <td>3</td>
-              <td>Carlos Santos</td>
-              <td>14/05/2025</td>
-              <td>
-                <button
-                  class="btn accept"
-                  onclick="showAlert('Apagado', 'Carlos Santos')"
-                >
-                  Apagar
-                </button>
-                <button
-                  class="btn info"
-                  onclick="showAlert('Atualizado perfil', 'Carlos Santos')"
-                >
-                  Atualizar
-                </button>
-              </td>
-            </tr>
-          </tbody>
-        </table>
-      </main>
-
-     
-
-      <!-- Script para feedback visual -->
-      <script>
-        function showAlert(action, patientName) {
-          alert(`Paciente ${patientName} foi ${action} com sucesso!`);
-        }
-      </script>
-    </main>
-
-    <!-- <h1>consulta</h1> -->
-    <!-- <table class="table">
+      <!-- Tabela de pacientes -->
+      <table class="patient-table" id="table">
         <thead>
           <tr>
-            <th scope="col">#</th>
-            <th scope="col">First</th>
-            <th scope="col">Last</th>
-            <th scope="col">Handle</th>
+            <th>#</th>
+            <th>Nome do Paciente</th>
+            <th>Data da Consulta</th>
+            <th>Especialidade</th>
+            <th>Status</th>
           </tr>
         </thead>
-        <tbody>
-          <tr>
-            <th scope="row">1</th>
-            <td>Mark</td>
-            <td>Otto</td>
-            <td>@mdo</td>
-          </tr>
-          <tr>
-            <th scope="row">2</th>
-            <td>Jacob</td>
-            <td>Thornton</td>
-            <td>@fat</td>
-          </tr>
-          <tr>
-            <th scope="row">3</th>
-            <td>John</td>
-            <td>Doe</td>
-            <td>@social</td>
-          </tr>
-        </tbody>
-      </table> -->
+      </table>
+    </main>
 
-    <footer></footer>
-  </body>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+      integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
+      crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.min.js"
+      integrity="sha384-RuyvpeZCxMJCqVUGFI0Do1mQrods/hhxYlcVfGPOfQtPJh0JCw12tUAZ/Mv10S7D"
+      crossorigin="anonymous"></script>
+  </main>
+
+
+  <footer></footer>
+
+
+  <!-- Modal -->
+  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="exampleModalLabel">Agendamento</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <div class="mb-3">
+
+            <label for="especialidade">Especialidade</label>
+            <select class="form-select form-select-md" id="especialidade" aria-label="Selecione o nicho de atendimento">
+            </select>
+
+          </div>
+
+          <div class="mb-3">
+            <label for="dataAtendimento" class="form-label">Data de Atendimento</label>
+            <input type="date" class="form-control" id="dataAtendimento" name="dataAtendimento">
+          </div>
+
+          <div class="mb-3">
+            <label for="horaAtendimento" class="form-label">Hora de Atendimento</label>
+            <input type="time" class="form-control" id="horaAtendimento" name="horaAtendimento">
+          </div>
+
+          <div class="mb-3">
+            <label for="sala" class="form-label">Sala</label>
+            <input type="text" class="form-control" id="sala" name="sala" placeholder="Número da sala">
+          </div>
+          <div class="mb-3">
+            <label for="medico" class="form-label">Médico</label>
+            <select class="form-select" id="medico" name="medico">
+              <option selected>Selecione o médico</option>
+            </select>
+          </div>
+          <div class="mb-3">
+            <label for="paciente" class="form-label">Paciente</label>
+            <input type="text" class="form-control" id="paciente" name="paciente" placeholder="Nome do paciente">
+          </div>
+
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+          <button type="button" class="btn btn-primary" id="agendarConsulta">Agendar Consulta</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="./consulta.js"></script>
+</body>
+
 </html>

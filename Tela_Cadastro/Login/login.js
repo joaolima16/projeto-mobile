@@ -38,6 +38,7 @@ document.getElementById('login').addEventListener('click', function () {
         // Redirecionar para outra página após o login bem-sucedido
         sessionStorage.setItem("userBackOffice", JSON.stringify(usuario));
         setTimeout(window.location.href = "../../Tela_Principal/index.html", 2000);
+        sessionStorage.setItem('user', JSON.stringify(usuario));
       })
       .catch(error => {
         console.error(error);

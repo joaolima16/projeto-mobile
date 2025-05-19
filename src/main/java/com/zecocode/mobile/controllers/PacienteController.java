@@ -19,6 +19,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestParam;
 
 @RestController
 @RequestMapping("/paciente")
@@ -31,6 +32,11 @@ public class PacienteController {
     @GetMapping
     public List<Paciente> getPaciente() {
         return pacienteService.findAllPaciente();
+    }
+
+    @GetMapping("/{email}")
+    public Paciente getPacienteByEmail(@PathVariable String email) {
+        return pacienteService.findPacienteByEmail(email);
     }
 
     @PostMapping

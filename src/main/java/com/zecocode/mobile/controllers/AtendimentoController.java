@@ -19,6 +19,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.PutMapping;
 
 @RestController
 @RequestMapping("/atendimento")
@@ -44,10 +45,16 @@ public class AtendimentoController {
         return ResponseEntity.status(HttpStatus.OK).body("Paciente criado da base com sucesso!");
     }
 
+    @PutMapping("update/{id}")
+    public ResponseEntity putMethodName(@PathVariable Long id) {
+        atendimentoService.upAtendimentoStatus(id, true);
+        return ResponseEntity.status(HttpStatus.OK).body("Paciente atualizado da base com sucesso!");
+    }
+
     @DeleteMapping("/{id}")
     public ResponseEntity deleAtendimento(@PathVariable Long id) {
-        atendimentoService.deletarPaciente(id);
-        return ResponseEntity.status(HttpStatus.OK).body("Paciente deletado da base com sucesso!");
+        atendimentoService.deletarAtendimento(id);
+        return ResponseEntity.status(HttpStatus.OK).body("Paciente deletado da baseom sucesso!");
     }
 
 }

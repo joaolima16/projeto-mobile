@@ -50,7 +50,6 @@ public class Atendimento {
 
     @ManyToOne
     @JoinColumn(name = "paciente_id", nullable = false)
-    @JsonIgnore
     private Paciente paciente;
 
 }

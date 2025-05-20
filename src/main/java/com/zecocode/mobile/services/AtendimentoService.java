@@ -53,8 +53,19 @@ public class AtendimentoService {
         return atendimentoRepository.findByPacienteId(pacienteId);
     }
 
+    public Atendimento upAtendimentoStatus(Long id, Boolean status) {
+        Optional<Atendimento> atendimento = atendimentoRepository.findById(id);
+        if (atendimento.isPresent()) {
+            Atendimento atendimentoToUpdate = atendimento.get();
+            atendimentoToUpdate.setStatus(status);
+            return atendimentoRepository.save(atendimentoToUpdate);
+        } else {
+            throw new RuntimeException("Atendimento com ID " + id + " não encontrado.");
+        }
+    }
+
     // DELETA ATENDIMENTO DA BASE
-    public void deletarPaciente(Long id) {
+    public void deletarAtendimento(Long id) {
         Optional<Atendimento> atendimento = atendimentoRepository.findById(id);
         if (atendimento.isPresent()) {
             atendimentoRepository.deleteById(id);
